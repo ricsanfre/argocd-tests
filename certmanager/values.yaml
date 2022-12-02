@@ -1,2 +1,2 @@
-certmanager:
+cert-manager:
   installCRDs: true
