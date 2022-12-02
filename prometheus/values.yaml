@@ -1,0 +1,50 @@
+kube-prometheus-stack:
+  alertmanager:
+    alertmanagerSpec:
+      externalUrl: http://monitoring.internal/alertmanager/
+      routePrefix: /
+      storage:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: local-path
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 5Gi
+  prometheus:
+    prometheusSpec:
+      externalUrl: http://monitoring.internal/prometheus/
+      routePrefix: /
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: local-path
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 5Gi
+  grafana:
+    # Admin user password
+    adminPassword: "s1cret0"
+    grafana.ini:
+      server:
+        domain: monitoring.internal
+        root_url: "%(protocol)s://%(domain)s:%(http_port)s/grafana/"
+        serve_from_sub_path: true
+
+  prometheusOperator:
+    # Disable kubelet serice creation
+    kubeletService:
+      enabled: false
+  kubelet:
+    enabled: false
+  kubeApiServer:
+    enabled: false
+  kubeControllerManager:
+    enabled: false
+  kubeScheduler:
+    enabled: false
+  kubeProxy:
+    enabled: false
+  kubeEtcd:
+    enabled: false
