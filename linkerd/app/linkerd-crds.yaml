@@ -13,6 +13,9 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: linkerd
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
@@ -29,7 +32,7 @@ spec:
       - /spec/names/shortNames
     - group: apiextensions.k8s.io
       kind: CustomResourceDefinition
-      name: networkauthentications.policy.linkerd.io.policy.linkerd.io
+      name: networkauthentications.policy.linkerd.io
       jsonPointers:
       - /spec/names/shortNames
 
