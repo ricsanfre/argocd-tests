@@ -21,4 +21,4 @@ spec:
       kind: CustomResourceDefinition
       name: authorizationpolicies.policy.linkerd.io
       jsonPointers:
-      - /spec/shortNames
+      - /spec/names/shortNames
