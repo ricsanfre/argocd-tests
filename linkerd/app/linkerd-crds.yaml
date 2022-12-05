@@ -20,4 +20,4 @@ spec:
     - group: ""
       kind: CustomResourceDefinition
       name: authorizationpolicies.policy.linkerd.io
-      jsonPointers: /spec/shortNames
+      - jsonPointers: /spec/shortNames
