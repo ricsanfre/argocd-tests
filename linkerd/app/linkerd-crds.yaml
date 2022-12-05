@@ -16,8 +16,8 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
-ignoreDifferences:
-  - group: ""
-    kind: CustomResourceDefinition
-    name: authorizationpolicies.policy.linkerd.io
-    jsonPointers: /spec/shortNames
+  ignoreDifferences:
+    - group: ""
+      kind: CustomResourceDefinition
+      name: authorizationpolicies.policy.linkerd.io
+      jsonPointers: /spec/shortNames
