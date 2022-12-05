@@ -4,6 +4,7 @@ metadata:
   name: linkerd-bootstrap
   namespace: argocd
 spec:
+  project: default
   source:
     repoURL: 'https://github.com/ricsanfre/argocd-tests'
     path: linkerd/bootstrap
