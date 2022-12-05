@@ -12,7 +12,7 @@ spec:
     helm:
       parameters:
       - name: identity.externalCA
-        value: true
+        value: "true"
       - name: identity.issuer.scheme
         value: kubernetes.io/tls
   destination:
