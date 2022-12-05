@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/ricsanfre/argocd-tests'
-    path: linkerd
+    path: linkerd/app
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
