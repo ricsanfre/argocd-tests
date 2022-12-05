@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: linkerd-crds
+  namespace: argocd
+spec:
+  source:
+    chart: linkerd-crds
+    repoURL: https://helm.linkerd.io/stable
+    targetRevision: 1.9.4
+    helm:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: linkerd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
