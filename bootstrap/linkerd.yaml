@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     namespace: linkerd
-    server: in-cluster
+    server: https://kubernetes.default.svc
   project: default
   source:
     path: argocd/system/linkerd
